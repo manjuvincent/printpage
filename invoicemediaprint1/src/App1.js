@@ -1,17 +1,21 @@
 
-import './App.css';
 
-function App() {
+import React, {useState } from 'react';
+import './App1.css';
+function App1() {
+    const [qty1, setQty1Value] = useState("");
 
-  function GetPrint()
+  function GetPrint1()
 {
     /*For Print*/
     window.print();
 }
 
-
+function handleQtyChange(event) {
+    setQty1Value(event.target.value);
+}
   return (
-    <div className="App">
+    <div className="App1">
      <div className="container ">
        
 
@@ -71,11 +75,21 @@ function App() {
 
                      </tr>
                    </thead>
-                   <tbody id="TBody">
+                   {/* <tbody id="TBody">
                      <tr id="TRow" className="d-none">
                        <th scope="row">1</th>
                        <td><input type="text" className="form-control" /></td>
                        <td><input type="number" className="form-control text-end" name="qty" onchange="Calc(this);"/></td>
+                       <td><input type="number" className="form-control text-end" name="rate"  onchange="Calc(this);"/></td>
+                       <td><input type="number" className="form-control text-end" name="amt" value="0" disabled=""/></td>
+                       <td className="NoPrint"><button type="button" className="btn btn-sm btn-danger" onclick="BtnDel(this)">X</button></td>
+                     </tr>
+                   </tbody> */}
+                    <tbody id="TBody">
+                     <tr id="TRow" className="d-none">
+                       <th scope="row">1</th>
+                       <td><input type="text" className="form-control" /></td>
+                       <td><input type="number" className="form-control text-end" name="qty" value={ qty1 } onChange={ handleQtyChange }/></td>
                        <td><input type="number" className="form-control text-end" name="rate"  onchange="Calc(this);"/></td>
                        <td><input type="number" className="form-control text-end" name="amt" value="0" disabled=""/></td>
                        <td className="NoPrint"><button type="button" className="btn btn-sm btn-danger" onclick="BtnDel(this)">X</button></td>
@@ -88,9 +102,9 @@ function App() {
                    <div className="col-8">
                      
                        {/* <button type="button" className="btn btn-primary" onclick="GetPrint()">Print</button> */}
-                       <button type="button" className="btn btn-primary" onClick={() => GetPrint()}>Print</button>
+                       <button type="button" className="btn btn-primary" onClick={() => GetPrint1()}>Print</button>
                    </div>
-                   <div className="col-4">
+                   {/* <div className="col-4">
                        <div className="input-group mb-3">
                            <span className="input-group-text" >Total</span>
                            <input type="number" className="form-control text-end" id="FTotal" name="FTotal" disabled=""/>
@@ -105,7 +119,7 @@ function App() {
                        </div>
 
 
-                   </div>
+                   </div> */}
                </div>
             </div>
          </div>
@@ -115,4 +129,4 @@ function App() {
   );
 }
 
-export default App;
+export default App1;
